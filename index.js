@@ -1,12 +1,12 @@
 (()=>{
-    const konamiCode = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a","Enter"]
+    const konamiCode = [38,38,40,40,37,39,37,39,66,65,13]
     const tempList = []
 
     let konamiHandler = (event)=>{
-        let pushedIndex = tempList.push(event.key) - 1
-        console.log(tempList);
+        let pushedIndex = tempList.push(event.keyCode) - 1
+        console.log(event);
         
-        if(event.key !== konamiCode[pushedIndex]){
+        if(event.keyCode !== konamiCode[pushedIndex]){
             tempList.length=0
         }
     
@@ -17,7 +17,7 @@
         }
     
     }
-    
-    const konamiEvent=document.addEventListener("keyup",konamiHandler)
+
+    const konamiEvent=document.addEventListener("keyup",konamiHandler)  
 })()
 
